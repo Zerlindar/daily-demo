@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function trigger(e){
+        console.log("data", e);
+    }
+    var url = 'http://www.ilovecc.ren/test.js?version=333';
+    var iframe = document.createElement('iframe');
+    iframe.style.width = '1px';
+    iframe.style.height = '1px';
+    iframe.style.display = 'none';
+    iframe.src = url;
+    document.body.appendChild(iframe);
+    setTimeout(function() {
+        iframe.remove();
+    }, 100);
+</script>
+<!--<script src = "http://www.ilovecc.ren/test.js?version=333"></script>-->
+</body>
+</html>

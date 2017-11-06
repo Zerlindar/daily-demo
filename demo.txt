@@ -1,0 +1,12 @@
+hello，这是一个测试的文件。入文件数据内
+使用fs.appendFile追加文件内容
+入文件数据内
+使用fs.appendFile追加文件内容
+入文件数据内
+使用fs.appendFile追加文件内容
+入文件数据内
+使用fs.appendFile追加文件内容
+入文件数据内
+使用fs.appendFile追加文件内容
+入文件数据内
+使用fs.appendFile追加文件内容
