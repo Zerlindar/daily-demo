@@ -1,12 +1,3 @@
-/**
- * Created by Administrator on 2016/12/23.
- */
-/**
- * Created by Administrator on 2016/12/23.
- */
-/**
- * Created by Administrator on 2016/12/20.
- */
 ;(function(win) {
   var doc = win.document;
   var docEl = doc.documentElement;
