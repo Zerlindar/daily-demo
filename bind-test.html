@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id = "name">fsdf</div>
+<div id = "age">dfsfsd</div>
+<script>
+    var userInfo = {};
+    Object.defineProperty(userInfo, "name", {
+        set: function(name){
+            document.getElementById('name').innerHTML = name;
+        }
+    })
+    Object.defineProperty(userInfo, "age", {
+        set: function(age){
+            document.getElementById('age').innerHTML = age;
+        }
+    })
+</script>
+</body>
+</html>

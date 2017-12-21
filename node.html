@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="get">
+    get数据
+</div>
+<script>
+    var get = document.querySelector(".get");
+    function ajax(url, method, data, success, error){
+        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); //兼容ie
+        //get请求-拼接url
+        if(method.toLowerCase() == 'get') {
+            var _data = [];
+            if(typeof data == 'object') {
+                for(var k in data) {
+                    _data.push(k + '=' + data[k]);
+                    _data.join('&');
+                }
+            }
+            url += (url.indexOf('?' == -1) ? '?' : '') + _data;
+        }
+        //post请求-转换字符串
+        if(method.toLowerCase() == 'post') {
+            var arrs = [];
+            if(typeof data == 'object') {
+                for(var k in data) {
+                    arrs.push(k + '=' + data[k]);
+                }
+                data = arrs.join('&');
+            }
+        }
+        xhr.open(method, url);
+        if(method.toLowerCase() == "get"){
+            xhr.send(null)
+        }else if(method.toLowerCase() == "post"){
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(data);
+        }
+        xhr.onreadystatechange = function(){
+            if(this.readyState !== 4) return ;
+            if(this.status == 200){
+                success(this.response)
+            }else{
+                error && error(new Error(this.statusText));
+            }
+        }
+    }
+    get.onclick = function(){
+        ajax("/listUsers", "get", {id: 1}, function(e){console.log(e)});
+    }
+</script>
+</body>
+</html>
