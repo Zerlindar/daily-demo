@@ -9,7 +9,7 @@
     #box2{ position:absolute; left:100px; top:100px; width:100px; height:100px; background:#f60;}
   </style>
 </head>
-<body>
+<body style = "height: 1000px;">
 <div id="box"></div>
 <div id = "box2"></div>
 <script type="text/javascript">
@@ -71,9 +71,27 @@
       e.preventDefault();
     }
   }
-  move("box");
-
-
+  var debounce　 = function(fn,delay){
+      var timer = null;
+      var t_start;
+      return function(){
+          var context = this;
+          var args = arguments;
+          var t_curr = +new Date();
+          clearTimeout(timer);
+          if(!t_start){
+              t_start = t_curr;
+          }
+          if(t_curr - t_start >= delay) {
+              fn.apply(context,args);
+              t_start = t_curr
+          }
+      }
+  }
+  //move("box");
+  document.body.onscroll = debounce(function(){
+      console.log("eee");
+  }, 1000)
 
 
 
